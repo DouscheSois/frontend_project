@@ -1,0 +1,12 @@
+main {
+  min-height: 80vh;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+p {
+  font-size: 1.1rem;
+}
