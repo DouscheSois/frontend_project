@@ -2,11 +2,35 @@ main {
   min-height: 80vh;
 }
 
+h1 {
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
 footer {
   position: absolute;
   width: 100%;
-  top: 80vh;
+  top: 100vh;
 }
 
-.jumbotron {
+.random-joke {
+  font-size: 2rem;
+}
+
+.opac {
+  opacity: 0.5;
+}
+
+.xl-font {
+  font-size: 2rem;
+  color: #333;
+}
+
+@media (max-width: 700px) {
+  .xl-font {
+    font-size: 1rem;
+  }
 }

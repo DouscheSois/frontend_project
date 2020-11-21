@@ -1,9 +1,23 @@
 import React, { useEffect, useState } from "react";
 
-import { Row, Col, Container, Badge, Jumbotron, Image } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Container,
+  Badge,
+  Jumbotron,
+  Image,
+  Navbar,
+  Carousel,
+  Spinner,
+} from "react-bootstrap";
+
+import Background from "../images/background.jpg";
 
 const Home = () => {
   const [jokes, setJokes] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchJokes = async () => {
       try {
@@ -22,6 +36,7 @@ const Home = () => {
         );
         let data = await res.json();
         setJokes([data]);
+        setLoading(true);
         console.log(data);
       } catch (err) {
         console.error(err.message);
@@ -30,18 +45,65 @@ const Home = () => {
     fetchJokes();
   }, []);
 
+  // Use another useEffect to load another joke?
+
+  // <Jumbotron className="jumbotron" key={key} fluid>
+  //   <Image src={item.icon_url} alt="icon" />
+  //   <p className="random-joke">{item.value}</p>
+  // </Jumbotron>
+
   return (
     <Row className="text-center">
       <Col>
         <Container>
-          <h1>
-            <Badge variant="secondary">New Chuck Norris Joke Of The Day</Badge>
+          <h1 className="bg-light py-3">
+            <Badge variant="dark">New</Badge> Chuck Norris joke of the day!
           </h1>
-          {jokes.map((item, key) => (
-            <Jumbotron className="jumbotron" key={key} fluid>
-              <Image src={item.icon_url} alt="icon" />
-              <p className="random-joke">{item.value}</p>
-            </Jumbotron>
+          <Spinner animation="grow" />
+          {jokes.map((item, key, loading) => (
+            <Carousel key={key}>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 opac"
+                  src={Background}
+                  alt="First slide"
+                />
+                <Carousel.Caption>
+                  <h2>
+                    <Image src={item.icon_url} alt="icon" />
+                  </h2>
+                  <p className="xl-font">{item.value}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 opac"
+                  src={Background}
+                  alt="Third slide"
+                />
+
+                <Carousel.Caption>
+                  <h2>
+                    <Image src={item.icon_url} alt="icon" />
+                  </h2>
+                  <p className="xl-font">{item.value}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100 opac"
+                  src={Background}
+                  alt="Third slide"
+                />
+
+                <Carousel.Caption>
+                  <h2>
+                    <Image src={item.icon_url} alt="icon" />
+                  </h2>
+                  <p className="xl-font">{item.value}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
           ))}
         </Container>
       </Col>
