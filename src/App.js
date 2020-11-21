@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 
-import Matt from "./images/matt.jpg";
-
-import { Container, Image } from "react-bootstrap";
+import Header from "./constant/Header";
+import Footer from "./constant/Footer";
 
 import "./App.css";
 
@@ -23,6 +21,7 @@ const App = () => {
           <About />
         </Route>
       </main>
+      <Footer />
     </Router>
   );
 };
