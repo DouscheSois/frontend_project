@@ -7,6 +7,10 @@ import About from "./components/About";
 import Header from "./constant/Header";
 import Footer from "./constant/Footer";
 
+// Send money to Peru with google youtube donation?
+
+// Make 3 useEffects and combine them in one to create the illusion.
+
 import { Container } from "react-bootstrap";
 
 const App = () => {
