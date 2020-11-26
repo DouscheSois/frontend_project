@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Carousel, Image, Badge } from "react-bootstrap";
+import { Carousel, Image } from "react-bootstrap";
 
 import Background from "../../images/background.jpg";
 
@@ -77,6 +77,7 @@ const RandomJokes = () => {
         console.error(err.message);
       }
     };
+
     fetchJokes1();
     fetchJokes2();
     fetchJokes3();

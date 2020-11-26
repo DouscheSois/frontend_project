@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Home from "./components/Home";
-import About from "./components/About";
+import Search from "./components/Search";
+import CovidMap from "./components/CovidMap";
 
 import Header from "./constant/Header";
 import Footer from "./constant/Footer";
@@ -22,8 +23,11 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/about">
-            <About />
+          <Route exact path="/search">
+            <Search />
+          </Route>
+          <Route exact path="/covid">
+            <CovidMap />
           </Route>
         </Container>
       </main>

@@ -1,20 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  Row,
-  Col,
-  Container,
-  Badge,
-  Jumbotron,
-  Image,
-  Navbar,
-  Carousel,
-  Spinner,
-} from "react-bootstrap";
+import { Row, Col, Container, Badge, Spinner } from "react-bootstrap";
 
 import RandomJokes from "./fetches/RandomJokes";
-
-import Background from "../images/background.jpg";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
