@@ -21,7 +21,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link href="/search">Search</Nav.Link>
-              <Nav.Link href="/covid">Covid Map</Nav.Link>
+              <Nav.Link href="/covid">Covid-19</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
