@@ -1,3 +1,6 @@
+# Frontend Project - React
+I update it every time I can with new features. Building it on the go. API fetches, website UI, funny content (Chuck Norris), covid-19, etc.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
