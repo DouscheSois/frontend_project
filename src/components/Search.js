@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Row,
   Col,
@@ -10,35 +10,18 @@ import {
   Jumbotron,
 } from "react-bootstrap";
 
+import { scrollFunction } from "../helper/scrollFunction";
+import { toTop } from "../helper/toTop";
+
 import bio1 from "../images/bio1.jpg";
 import gallery1 from "../images/gallery1.jpg";
 import lorem1 from "../images/lorem1.jpg";
 import news1 from "../images/news1.jpg";
+import music1 from "../images/music1.jpg";
 
 const Search = () => {
   const [joke, setJoke] = useState([]);
   const [query, setQuery] = useState("");
-
-  const scrollFunction = () => {
-    let buttoncss = document.getElementById("buttoncss");
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      buttoncss.style.display = "block";
-    } else {
-      buttoncss.style.display = "none";
-    }
-  };
-
-  window.onscroll = function () {
-    scrollFunction();
-  };
-
-  const toTop = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const newSearch = async () => {
     if (query === "") {
@@ -65,6 +48,9 @@ const Search = () => {
     } catch (err) {
       console.error(err.message);
     }
+  };
+  window.onscroll = function () {
+    scrollFunction();
   };
   return (
     <>
@@ -152,15 +138,15 @@ const Search = () => {
       <Row className="text-center">
         <Col sm={12} md={12} lg={4}>
           <Card>
-            <Card.Img variant="top" src={lorem1} alt="bio1" />
+            <Card.Img variant="top" src={music1} alt="music1" />
             <Card.Body>
-              <Card.Title>Ipsum Lorem</Card.Title>
+              <Card.Title>Music</Card.Title>
 
               <Button
                 variant="primary"
-                href="https://en.wikipedia.org/wiki/Chuck_Norris"
+                href="https://www.youtube.com/watch?v=jU2ewGs-CP4"
               >
-                Go Read More!
+                Go Listen!
               </Button>
             </Card.Body>
           </Card>
