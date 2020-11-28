@@ -105,6 +105,36 @@ const CovidMap = () => {
                 <Navbar.Brand>Active cases:</Navbar.Brand>
                 {item.data.regions.usa.active_cases.toLocaleString()}
               </Navbar>
+              <Navbar bg="light">
+                <Navbar.Brand>Active cases:</Navbar.Brand>
+                {item.data.regions.usa.critical.toLocaleString()}
+              </Navbar>
+              <Navbar bg="light">
+                <Navbar.Brand># of deaths:</Navbar.Brand>
+                {item.data.regions.usa.deaths.toLocaleString()}
+              </Navbar>
+              <Navbar bg="light">
+                <Navbar.Brand>Active cases:</Navbar.Brand>
+                {item.data.regions.usa.death_ratio.toLocaleString("en", {
+                  style: "percent",
+                })}
+              </Navbar>
+              <Navbar bg="light">
+                <Navbar.Brand># of recovered:</Navbar.Brand>
+                {item.data.regions.usa.recovered.toLocaleString()}
+              </Navbar>
+              <Navbar bg="light">
+                <Navbar.Brand>Recovery ratio:</Navbar.Brand>
+                {item.data.regions.usa.recovery_ratio.toLocaleString("en", {
+                  style: "percent",
+                })}
+              </Navbar>
+              <Navbar bg="info" variant="dark">
+                <Navbar.Brand>Total Cases:</Navbar.Brand>
+                <Navbar.Brand>
+                  {item.data.regions.usa.total_cases.toLocaleString()}
+                </Navbar.Brand>
+              </Navbar>
             </div>
           ))}
         </Col>

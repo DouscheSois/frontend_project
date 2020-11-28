@@ -15,13 +15,19 @@ const Header = () => {
       >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>Chuck Norris</Navbar.Brand>
+            <Navbar.Brand>
+              <i className="fa fa-home"></i> Chuck Norris
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="/search">Search</Nav.Link>
-              <Nav.Link href="/covid">Covid-19</Nav.Link>
+              <Nav.Link href="/search">
+                <i className="fa fa-search"></i> Search
+              </Nav.Link>
+              <Nav.Link href="/covid">
+                <i className="fa fa-exclamation-circle"></i> Covid-19
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

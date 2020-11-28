@@ -16,7 +16,7 @@ const Footer = () => {
         <Row>
           <Col className="text-center">
             <Navbar.Text>
-              Made by: <a href="#!">Douschesois</a>
+              Made by: <a href="https://www.douschesois.com/">Douschesois</a>
             </Navbar.Text>
           </Col>
         </Row>

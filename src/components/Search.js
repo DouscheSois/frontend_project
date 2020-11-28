@@ -19,6 +19,27 @@ const Search = () => {
   const [joke, setJoke] = useState([]);
   const [query, setQuery] = useState("");
 
+  const scrollFunction = () => {
+    let buttoncss = document.getElementById("buttoncss");
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      buttoncss.style.display = "block";
+    } else {
+      buttoncss.style.display = "none";
+    }
+  };
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  const toTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const newSearch = async () => {
     if (query === "") {
       return;
@@ -45,14 +66,15 @@ const Search = () => {
       console.error(err.message);
     }
   };
-
   return (
     <>
-      <Row>
+      <Row className="text-center">
         <Col>
-          <Jumbotron fluid className="text-center">
-            <Container className="py-4">
-              Chuck Norris never sleeps so search for a fresh joke below
+          <Container>
+            <Jumbotron className="text-center my-4">
+              <h3>
+                Chuck Norris never sleeps so search for a fresh joke below
+              </h3>
               <Form>
                 <FormControl
                   type="text"
@@ -70,17 +92,18 @@ const Search = () => {
                 </Button>
               </Form>
               {joke.map((item, key) => (
-                <Jumbotron fluid key={key} className="bg-light mt-4">
-                  <Container>
-                    <p>{item.value}</p>
-                  </Container>
-                </Jumbotron>
+                <Container key={key} className="my-4 p-4 bg-light">
+                  <p>{item.value}</p>
+                </Container>
               ))}
-            </Container>
-          </Jumbotron>
+            </Jumbotron>
+            <Button variant="outline-danger" onClick={toTop} id="buttoncss">
+              Top
+            </Button>
+          </Container>
         </Col>
       </Row>
-      <Row className="my-2 text-center">
+      <Row className="text-center my-1">
         <Col sm={12} md={12} lg={4}>
           <Card>
             <Card.Img variant="top" src={bio1} alt="bio1" />
@@ -126,7 +149,7 @@ const Search = () => {
           </Card>
         </Col>
       </Row>
-      <Row className="my-2 text-center">
+      <Row className="text-center">
         <Col sm={12} md={12} lg={4}>
           <Card>
             <Card.Img variant="top" src={lorem1} alt="bio1" />
