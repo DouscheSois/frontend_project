@@ -77,6 +77,9 @@ const Search = () => {
                   Search New Joke
                 </Button>
               </Form>
+              <small>
+                Must Click not Press Enter...I know, I am working on it.
+              </small>
               {joke.map((item, key) => (
                 <Container key={key} className="my-4 p-4 bg-light">
                   <p>{item.value}</p>
