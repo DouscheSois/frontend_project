@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import SearchResults from "./SearchResults";
+
 import {
   Row,
   Col,
@@ -8,10 +10,8 @@ import {
   Button,
   Card,
   Jumbotron,
+  Spinner,
 } from "react-bootstrap";
-
-import { scrollFunction } from "../helper/scrollFunction";
-import { toTop } from "../helper/toTop";
 
 import bio1 from "../images/bio1.jpg";
 import gallery1 from "../images/gallery1.jpg";
@@ -22,11 +22,13 @@ import music1 from "../images/music1.jpg";
 const Search = () => {
   const [joke, setJoke] = useState([]);
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const newSearch = async () => {
     if (query === "") {
       return;
     }
+
     try {
       let res = await fetch(
         `https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/search?query=${query}`,
@@ -44,14 +46,13 @@ const Search = () => {
       let data = await res.json();
       setJoke(data.result);
       setQuery("");
+      setLoading(true);
       console.log(data);
     } catch (err) {
       console.error(err.message);
     }
   };
-  window.onscroll = function () {
-    scrollFunction();
-  };
+
   return (
     <>
       <Row className="text-center">
@@ -80,15 +81,12 @@ const Search = () => {
               <small>
                 Must Click not Press Enter...I know, I am working on it.
               </small>
-              {joke.map((item, key) => (
-                <Container key={key} className="my-4 p-4 bg-light">
-                  <p>{item.value}</p>
-                </Container>
-              ))}
+              <Container>
+                {joke.map((item, key) => (
+                  <SearchResults key={key} result={item} />
+                ))}
+              </Container>
             </Jumbotron>
-            <Button variant="outline-danger" onClick={toTop} id="buttoncss">
-              Top
-            </Button>
           </Container>
         </Col>
       </Row>

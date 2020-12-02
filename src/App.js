@@ -5,8 +5,11 @@ import Home from "./components/Home";
 import Search from "./components/Search";
 import CovidMap from "./components/CovidMap";
 
+import { scrollFunction } from "./helper/scrollFunction";
+
 import Header from "./constant/Header";
 import Footer from "./constant/Footer";
+import ToTopButton from "./constant/ToTopButton";
 
 // Send money to Peru with google youtube donation?
 
@@ -15,6 +18,9 @@ import Footer from "./constant/Footer";
 import { Container } from "react-bootstrap";
 
 const App = () => {
+  window.onscroll = function () {
+    scrollFunction();
+  };
   return (
     <Router>
       <Header />
@@ -31,6 +37,7 @@ const App = () => {
           </Route>
         </Container>
       </main>
+      <ToTopButton />
       <Footer />
     </Router>
   );
