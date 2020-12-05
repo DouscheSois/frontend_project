@@ -10,7 +10,6 @@ import {
   Button,
   Card,
   Jumbotron,
-  Spinner,
 } from "react-bootstrap";
 
 import bio1 from "../images/bio1.jpg";
@@ -22,7 +21,6 @@ import music1 from "../images/music1.jpg";
 const Search = () => {
   const [joke, setJoke] = useState([]);
   const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const newSearch = async () => {
     if (query === "") {
@@ -46,7 +44,7 @@ const Search = () => {
       let data = await res.json();
       setJoke(data.result);
       setQuery("");
-      setLoading(true);
+
       console.log(data);
     } catch (err) {
       console.error(err.message);

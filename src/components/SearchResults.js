@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 
 const SearchResults = ({ result }) => {
-  const [joke, setJoke] = useState([]);
   const [loading, setLoading] = useState(false);
 
   setTimeout(() => {
